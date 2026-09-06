@@ -1,11 +1,11 @@
 const cards = [
-    //  Wisdom & Philosophy 
+    //  Philosophy 
     { name: "The Still Water",     symbol: "🌊", word: "Reflection",   mood: "neutral" },
     { name: "The Ink Moon",        symbol: "🌙", word: "Intuition",    mood: "neutral" },
     { name: "The River Stone",     symbol: "🪨", word: "Patience",     mood: "neutral" },
     { name: "The Lotus Root",      symbol: "🪷", word: "Depth",        mood: "neutral" },
     { name: "The Empty Bowl",      symbol: "🍚", word: "Openness",     mood: "neutral" },
-    //  Hope & Light 
+    //  Light 
     { name: "The Golden Fish",     symbol: "🐟", word: "Abundance",    mood: "good" },
     { name: "The Lantern",         symbol: "🏮", word: "Guidance",     mood: "good" },
     { name: "The Crane",           symbol: "🕊️", word: "Grace",        mood: "good" },
@@ -13,13 +13,13 @@ const cards = [
     { name: "The Hidden Star",     symbol: "✦",  word: "Potential",    mood: "good" },
     { name: "The Drifting Cloud",  symbol: "☁️", word: "Lightness",    mood: "good" },
     { name: "The Rising Kite",     symbol: "🪁", word: "Freedom",      mood: "good" },
-    //  Hardship & Growth 
+    //   Growth 
     { name: "The Drifting Petal",  symbol: "🌸", word: "Impermanence", mood: "bad"  },
     { name: "The Tangled Thread",  symbol: "🧵", word: "Complexity",   mood: "bad"  },
     { name: "The Cracked Vessel",  symbol: "🏺", word: "Repair",       mood: "bad"  },
     { name: "The Shrouded Path",   symbol: "🌫️", word: "Uncertainty",  mood: "bad"  },
     { name: "The Fallen Leaf",     symbol: "🍂", word: "Letting Go",   mood: "bad"  },
-    //  Funny & Whimsical 
+    //   Whimsical 
     { name: "The Confused Frog",   symbol: "🐸", word: "Bewilderment", mood: "funny" },
     { name: "The Sleepy Dragon",   symbol: "🐲", word: "Laziness",     mood: "funny" },
     { name: "The Lost Sandal",     symbol: "🥿", word: "Misadventure", mood: "funny" },
@@ -138,7 +138,7 @@ async function drawFortune() {
 
     resultCard.classList.add('visible');
 
-    // Pick fortune from mood pool
+    // pick from mood pool
     const pool = fortunes[card.mood];
     const f    = pool[Math.floor(Math.random() * pool.length)];
     fortuneText.textContent   = `"${f.text}"`;
