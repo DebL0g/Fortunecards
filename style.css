@@ -1,0 +1,384 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: hsl(36, 25%, 91%);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Top banner ── */
+.top-banner {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 1.6rem 2rem 0.6rem;
+    flex-shrink: 0;
+    animation: floatIn 1.4s ease forwards;
+}
+
+.top-banner-deco {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.8rem; margin-bottom: 0.55rem;
+}
+
+.tb-line {
+    display: block;
+    width: 60px; height: 0.5px;
+    background: linear-gradient(to right, transparent, hsl(25,30%,62%), transparent);
+}
+
+.tb-star {
+    font-size: 0.65rem;
+    color: hsl(25, 38%, 55%);
+}
+
+.top-title {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: hsl(20, 30%, 30%);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+}
+
+.top-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.48rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: hsl(25, 28%, 56%);
+}
+
+.bg-art { position: fixed; z-index: 0; pointer-events: none; }
+
+/* Left image — dreaming girl, faces right toward center */
+#art2 {
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: auto;
+    opacity: 0.55;
+    mask-image:
+        linear-gradient(to left, transparent 0%, black 5%),
+        linear-gradient(to top, transparent 0%, black 5%),
+        linear-gradient(to bottom, transparent 0%, black 5%),
+        linear-gradient(to right, black 42%, transparent 78%);
+    mask-composite: intersect;
+    -webkit-mask-image:
+        linear-gradient(to left, transparent 0%, black 5%),
+        linear-gradient(to top, transparent 0%, black 5%),
+        linear-gradient(to bottom, transparent 0%, black 5%),
+        linear-gradient(to right, black 42%, transparent 78%);
+    -webkit-mask-composite: source-in;
+}
+
+/* Right image — goldfish girl, faces left toward center */
+#art1 {
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: auto;
+    opacity: 0.55;
+    mask-image:
+        linear-gradient(to right, transparent 0%, black 5%),
+        linear-gradient(to top, transparent 0%, black 5%),
+        linear-gradient(to bottom, transparent 0%, black 5%),
+        linear-gradient(to left, black 42%, transparent 78%);
+    mask-composite: intersect;
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, black 5%),
+        linear-gradient(to top, transparent 0%, black 5%),
+        linear-gradient(to bottom, transparent 0%, black 5%),
+        linear-gradient(to left, black 42%, transparent 78%);
+    -webkit-mask-composite: source-in;
+}
+
+/* Soft vignette over whole page to unify everything */
+.vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 30%, hsla(36,25%,91%,0.55) 70%, hsla(36,25%,91%,0.88) 100%);
+}
+
+.page {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    flex: 1;
+    gap: 4vw;
+    padding: 0 6vw;
+}
+
+/* ── Left fortune panel ── */
+.left-panel {
+    flex: 1;
+    max-width: 340px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0;
+}
+
+/* placeholder */
+.placeholder {
+    text-align: center;
+    padding: 2.8rem 2rem;
+    background: hsla(36, 35%, 97%, 0.60);
+    border: 0.5px solid hsla(25, 30%, 68%, 0.30);
+    border-radius: 28px;
+    backdrop-filter: blur(16px);
+    width: 100%;
+    animation: floatIn 1.2s ease forwards;
+}
+.placeholder.hidden { display: none; }
+
+@keyframes floatIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.ph-stars {
+    display: flex; align-items: baseline;
+    justify-content: center; gap: 0.5rem;
+    margin-bottom: 1.6rem;
+    color: hsl(25, 38%, 56%);
+}
+.ph-s1 { font-size: 1.3rem; animation: twinkle 3.2s ease-in-out infinite; }
+.ph-s2 { font-size: 0.8rem; animation: twinkle 3.2s ease-in-out infinite; animation-delay: 0.9s; }
+.ph-s3 { font-size: 0.45rem; animation: twinkle 3.2s ease-in-out infinite; animation-delay: 1.8s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.35; transform: scale(0.9); }
+    50%       { opacity: 1;    transform: scale(1.1); }
+}
+
+.ph-title {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.35rem; font-style: italic;
+    color: hsl(20, 32%, 28%); line-height: 1.75;
+    margin-bottom: 1.1rem;
+}
+
+.ph-divider {
+    width: 40px; height: 0.5px;
+    background: hsl(25, 28%, 70%);
+    margin: 0 auto 1.1rem;
+}
+
+.ph-body {
+    font-size: 1rem; font-style: italic;
+    color: hsl(25, 22%, 46%); line-height: 1.95;
+    margin-bottom: 1.4rem;
+}
+
+.ph-hint {
+    font-family: 'Cinzel', serif; font-size: 0.52rem;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: hsl(25, 26%, 58%);
+}
+
+/* result card */
+.result-card {
+    background: hsla(36, 38%, 97%, 0.84);
+    border: 0.5px solid hsla(25, 28%, 68%, 0.34);
+    border-radius: 28px; padding: 2.2rem 2rem;
+    width: 100%; text-align: center; display: none;
+    backdrop-filter: blur(16px);
+    animation: slideFromLeft 0.85s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.result-card.visible { display: block; }
+
+@keyframes slideFromLeft {
+    from { opacity:0; transform: translateX(-16px); }
+    to   { opacity:1; transform: translateX(0); }
+}
+
+.result-stars {
+    font-size: 0.7rem; letter-spacing: 4px;
+    color: hsl(25, 34%, 60%); margin-bottom: 0.9rem;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.result-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 0.56rem;
+    letter-spacing: 3px; color: hsl(25,36%,50%);
+    text-transform: uppercase; margin-bottom: 1rem;
+}
+
+.fortune-text {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.18rem; line-height: 1.95;
+    color: hsl(20,24%,26%); font-style: italic;
+    margin-bottom: 0.7rem; min-height: 70px;
+}
+
+.fortune-author {
+    font-size: 0.85rem; color: hsl(25, 28%, 50%);
+    margin-bottom: 1rem;
+}
+
+.loading-dots {
+    font-size: 0.94rem; color: hsl(25,32%,54%);
+    font-style: italic; letter-spacing: 2px;
+}
+
+.fortune-keyword-wrap {
+    border-top: 0.5px solid hsl(25,24%,78%);
+    padding-top: 0.85rem; margin-bottom: 1rem;
+}
+
+.fortune-keyword {
+    font-family: 'Cinzel', serif; font-size: 0.56rem;
+    letter-spacing: 2.5px; color: hsl(25,38%,48%); text-transform: uppercase;
+}
+
+.again-btn {
+    display: inline-block; background: transparent;
+    border: 0.5px solid hsl(25,26%,65%); color: hsl(20,26%,37%);
+    padding: 0.5rem 1.6rem; border-radius: 50px;
+    font-family: 'Cinzel', serif; font-size: 0.56rem;
+    letter-spacing: 2px; cursor: pointer; text-transform: uppercase;
+    transition: background 0.2s;
+}
+.again-btn:hover { background: hsla(25,32%,83%,0.40); }
+
+/*  Center panel  */
+.center-panel {
+    display: flex; flex-direction: column;
+    align-items: center; flex-shrink: 0; gap: 1.4rem;
+}
+
+.title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.45rem; letter-spacing: 10px;
+    color: hsl(20, 34%, 30%); text-transform: uppercase;
+}
+
+.subtitle {
+    font-family: 'IM Fell English', serif;
+    font-size: 1rem; font-style: italic;
+    color: hsl(25, 26%, 50%);
+    margin-top: -0.6rem;
+}
+
+/*  Deck  */
+.deck-wrap { position: relative; width: 200px; height: 300px; }
+
+.stack-card {
+    position: absolute; width: 200px; height: 300px;
+    border-radius: 18px; background: hsl(25, 34%, 42%);
+    border: 1px solid hsl(25, 24%, 54%);
+}
+.stack-card:nth-child(1) { transform: translate(-5px,-5px) rotate(-1.8deg); opacity: 0.18; }
+.stack-card:nth-child(2) { transform: translate(-2.5px,-2.5px) rotate(-0.6deg); opacity: 0.34; }
+
+.scene {
+    width: 200px; height: 300px; perspective: 1100px;
+    position: absolute; top: 0; left: 0; cursor: pointer; z-index: 1;
+}
+
+.card-flipper {
+    width: 100%; height: 100%; position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.4,0,0.2,1);
+}
+.scene.flipped .card-flipper { transform: rotateY(180deg); }
+
+.card-face {
+    position: absolute; width: 100%; height: 100%;
+    border-radius: 18px; backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 1.6rem;
+}
+
+.card-back {
+    background: hsl(25, 36%, 43%);
+    border: 1px solid hsl(25, 26%, 56%);
+    box-shadow: 0 16px 52px hsla(20,38%,12%,0.20);
+    overflow: hidden;
+}
+
+.card-back-pattern {
+    position: absolute; inset: 0; border-radius: 18px;
+    background-image:
+        radial-gradient(circle at 25% 25%, hsla(38,55%,80%,0.09) 0%, transparent 55%),
+        radial-gradient(circle at 75% 75%, hsla(38,55%,80%,0.07) 0%, transparent 55%),
+        repeating-linear-gradient(45deg, hsla(38,55%,80%,0.045) 0px, hsla(38,55%,80%,0.045) 1px, transparent 1px, transparent 16px);
+}
+
+.card-back-deco {
+    width: 124px; height: 172px;
+    border: 1px solid hsla(38,50%,80%,0.22); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem; color: hsla(38,60%,88%,0.46); position: relative;
+}
+
+.card-back-label {
+    font-family: 'Cinzel', serif; font-size: 0.52rem;
+    letter-spacing: 3px; color: hsla(38,50%,86%,0.38);
+    text-transform: uppercase; margin-top: 1rem; position: relative;
+}
+
+.card-front-face {
+    background: hsl(36, 32%, 97%);
+    border: 1px solid hsl(25, 24%, 83%);
+    box-shadow: 0 20px 60px hsla(20,34%,12%,0.20);
+    transform: rotateY(180deg); gap: 0.65rem; text-align: center;
+}
+
+.card-front-deco {
+    position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 0.5px solid hsl(25,24%,86%); border-radius: 12px; pointer-events: none;
+}
+
+.front-symbol { font-size: 2.4rem; }
+
+.front-name {
+    font-family: 'Cinzel', serif; font-size: 0.52rem;
+    letter-spacing: 2px; color: hsl(20,28%,40%);
+    text-transform: uppercase; padding: 0 0.4rem;
+}
+
+.front-divider { width: 30px; height: 0.5px; background: hsl(25,24%,82%); }
+
+.front-word {
+    font-family: 'IM Fell English', serif;
+    font-size: 0.95rem; font-style: italic; color: hsl(25,32%,50%);
+}
+
+/* Draw button thingy */
+.draw-btn {
+    background: hsla(36, 35%, 96%, 0.55);
+    color: hsl(20, 34%, 33%);
+    border: 0.5px solid hsl(25, 32%, 62%);
+    padding: 0.82rem 2.2rem; border-radius: 50px;
+    font-family: 'Cinzel', serif; font-size: 0.70rem;
+    letter-spacing: 2px; cursor: pointer; text-transform: uppercase;
+    transition: background 0.25s, color 0.25s, transform 0.1s;
+    backdrop-filter: blur(6px);
+}
+.draw-btn:hover { background: hsl(25,48%,43%); color: hsl(36,50%,96%); border-color: transparent; }
+.draw-btn:active { transform: scale(0.97); }
+.draw-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+
+/*  Mood badge  */
+.mood-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.46rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.85rem;
+    border: 0.5px solid currentColor;
+}
+
+.mood-good    { color: hsl(142, 32%, 38%); background: hsla(142, 40%, 90%, 0.45); }
+.mood-bad     { color: hsl(0,   28%, 44%); background: hsla(0,   35%, 92%, 0.45); }
+.mood-neutral { color: hsl(220, 22%, 44%); background: hsla(220, 30%, 92%, 0.45); }
+.mood-funny   { color: hsl(38,  48%, 40%); background: hsla(38,  55%, 90%, 0.45); }

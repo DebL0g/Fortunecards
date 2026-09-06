@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle — Fortune Cards</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="img1.jpg"  class="bg-art" id="art2">
+    <img src="3f32f8784df685c3a211f681e67c7532.jpg" class="bg-art" id="art1">
+    <div class="vignette"></div>
+
+    <div class="top-banner">
+        <div class="top-banner-deco">
+            <span class="tb-line"></span>
+            <span class="tb-star">✦</span>
+            <span class="tb-line"></span>
+        </div>
+        <h1 class="top-title">let the water tell you something true</h1>
+        <p class="top-sub">draw a card · receive what you need · release what you don't</p>
+    </div>
+
+    <div class="page">
+
+        <!-- LEFT: fortune reading -->
+        <div class="left-panel">
+            <div class="placeholder" id="placeholder">
+                <div class="ph-stars">
+                    <span class="ph-s1">✦</span>
+                    <span class="ph-s2">✧</span>
+                    <span class="ph-s3">·</span>
+                </div>
+                <p class="ph-title">What does the water<br>hold for you today?</p>
+                <div class="ph-divider"></div>
+                <p class="ph-body">Shuffle your intentions.<br>Draw when you are ready<br>to receive.</p>
+                <p class="ph-hint">each card carries a different current</p>
+            </div>
+
+            <div class="result-card" id="resultCard">
+                <div class="result-stars">✧ · ✦ · ✧</div>
+                <div class="result-eyebrow" id="resultEyebrow"></div>
+                <span class="mood-badge" id="moodBadge"></span>
+                <div class="fortune-text" id="fortuneText"></div>
+                <div class="fortune-author" id="fortuneAuthor"></div>
+                <div class="fortune-keyword-wrap">
+                    <span class="fortune-keyword" id="fortuneKeyword"></span>
+                </div>
+                <button class="again-btn" id="againBtn">draw again</button>
+            </div>
+        </div>
+
+        <!-- CENTER: card deck -->
+        <div class="center-panel">
+            <p class="title">Oracle</p>
+            <p class="subtitle">a card for this moment</p>
+
+            <div class="deck-wrap">
+                <div class="stack-card"></div>
+                <div class="stack-card"></div>
+                <div class="scene" id="scene">
+                    <div class="card-flipper">
+                        <div class="card-face card-back">
+                            <div class="card-back-pattern"></div>
+                            <div class="card-back-deco">✦</div>
+                            <div class="card-back-label">Touch to draw</div>
+                        </div>
+                        <div class="card-face card-front-face">
+                            <div class="card-front-deco"></div>
+                            <div class="front-symbol" id="frontSymbol"></div>
+                            <div class="front-name" id="frontName"></div>
+                            <div class="front-divider"></div>
+                            <div class="front-word" id="frontWord"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="draw-btn" id="drawBtn">✦ Draw your fortune ✦</button>
+        </div>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
